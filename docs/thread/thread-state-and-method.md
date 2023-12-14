@@ -397,7 +397,7 @@ b 线程状态仍然不固定（RUNNABLE 或 BLOCKED）。
 
 简单介绍下 Thread 类里提供的关于线程中断的几个方法：
 
-- `Thread.interrupt()`：中断线程。这里的中断线程并不会立即停止线程，而是设置线程的中断状态为 true（默认是 flase）；
+- `Thread.interrupt()`：中断线程。这里的中断线程并不会立即停止线程，而是设置线程的中断状态为 true（默认是 false）；
 - `Thread.currentThread().isInterrupted()`：测试当前线程是否被中断。线程的中断状态会受这个方法的影响，调用一次可以使线程中断状态变为 true，调用两次会使这个线程的中断状态重新转为 false；
 - `Thread.isInterrupted()`：测试当前线程是否被中断。与上面方法不同的是调用这个方法并不会影响线程的中断状态。
 
