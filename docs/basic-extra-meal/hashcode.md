@@ -136,7 +136,7 @@ null
 
 原因就在于重写 `equals()` 方法的时候没有重写 `hashCode()` 方法。默认情况下，`hashCode()` 方法是一个本地方法，会返回对象的存储地址，显然 `put()` 中的 s1 和 `get()` 中的 `new Student(18, "张三")` 是两个对象，它们的存储地址肯定是不同的。
 
-HashMap 的 `get()` 方法会调用 `hash(key.hashCode())` 计算对象的哈希值，虽然两个不同的 `hashCode()` 结果经过 `hash()` 方法计算后有可能得到相同的结果，但这种概率微乎其微，所以就导致 `scores.get(new Student(18, "张三"))` 无法得到预期的值 18。
+HashMap 的 `get()` 方法会调用 `hash(key.hashCode())` 计算对象的哈希值，虽然两个不同的 `hashCode()` 结果经过 `hash()` 方法计算后有可能得到相同的结果，但这种概率微乎其微，所以就导致 `scores.get(new Student(18, "张三"))` 无法得到预期的值 98。
 
 怎么解决这个问题呢？很简单，重写 `hashCode()` 方法。
 
